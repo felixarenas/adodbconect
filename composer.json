@@ -1,0 +1,27 @@
+{
+    "name": "felixarenas/adodbconect",
+    "description": "Facilitates the use of adodb php in laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "felix arenas lourido",
+            "email": "felixarenas7@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "adodb/adodb-php": "^5.20",
+        "nesbot/carbon": "^1.22",
+        "cache/cache": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "farenas\\AdodbConect\\": "src/",
+            "farenas\\Tests\\":"tests/"
+        }
+    }
+}
