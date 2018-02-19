@@ -1,10 +1,10 @@
 <?php
-namespace farenas\AdodbConect;
+namespace farenas\AdodbConect\classAdodb;
 
 use Carbon\Carbon;
 use Cache\Adapter\PHPArray\ArrayCachePool;
-use farenas\AdodbConect\TraitAdodbConnect;
-use farenas\AdodbConect\seterGeterAdodbConectClass;
+use farenas\AdodbConect\classAdodb\TraitAdodbConnect;
+use farenas\AdodbConect\classAdodb\seterGeterAdodbConectClass;
 
 class AdodbConect extends seterGeterAdodbConectClass
 {
@@ -74,13 +74,12 @@ class AdodbConect extends seterGeterAdodbConectClass
 					$Cache->save($item);
 
 					if ($db->IsConnected()) {
-		
+
 						$db -> StartTrans();
 					} else {
-		
+
 						throw new \Exception('No está conectado a la base de datos');
 					}
-					
 				}
 			}else{
 

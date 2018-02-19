@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use farenas\AdodbConect\AdodbConect;
+use farenas\AdodbConect\classAdodb\AdodbConect;
 use farenas\Tests\FunctionGeneral;
 
 class AdodbConectTest extends TestCase {
@@ -13,7 +13,7 @@ class AdodbConectTest extends TestCase {
         $server = 'bdpruora03.intracoomeva.com.co';
         $puerto = '1574';
         $user   = 'PAC';
-        $password = 'P4c*d3sar'; 
+        $password = 'P4c*d3sar';
         $database = 'PRUORA03';
 
         $db = (new AdodbConect($driver, $server, $puerto, $user, $password, $database))->getConnection();

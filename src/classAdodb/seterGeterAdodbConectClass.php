@@ -1,5 +1,5 @@
 <?php
-namespace farenas\AdodbConect;
+namespace farenas\AdodbConect\classAdodb;
 
 class seterGeterAdodbConectClass 
 {
@@ -36,8 +36,8 @@ class seterGeterAdodbConectClass
 
 		$this -> setDataBase($database);
 
-		$this -> pathLocal = dirname(__FILE__)  . '/../vendor/adodb/adodb-php';
-		
+		$this -> pathLocal = dirname(__FILE__)  . '/../../vendor/adodb/adodb-php';
+
 		$this -> setDriver($driver);
 
 		$this -> setPuerto($puerto);

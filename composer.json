@@ -20,7 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "farenas\\AdodbConect\\": "src/",
+            "farenas\\AdodbConect\\": "src/"
+            
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "farenas\\Tests\\":"tests/"
         }
     }
