@@ -1,5 +1,5 @@
 <?php
-namespace farenas\AdodbConect\classAdodb;
+namespace farenas\AdodbConect\ClassAdodb;
 
 class seterGeterAdodbConectClass 
 {

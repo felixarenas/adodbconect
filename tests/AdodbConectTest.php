@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use farenas\AdodbConect\classAdodb\AdodbConect;
+use farenas\AdodbConect\ClassAdodb\AdodbConect;
 use farenas\Tests\FunctionGeneral;
 
 class AdodbConectTest extends TestCase {
