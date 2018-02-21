@@ -8,6 +8,7 @@ class AdodbInitConfigCommand extends Command
 {
 
     protected $signature = 'adodb:ini';
+
     protected $description = 'Genera el archivo de configuracion para adodbConect';
 
     public function __construct()
@@ -22,6 +23,7 @@ class AdodbInitConfigCommand extends Command
      */
     public function handle()
     {
+
         $key = $this->getRandomKey();
 
         $path = config_path('dbConfig.php');
