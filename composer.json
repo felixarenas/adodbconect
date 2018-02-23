@@ -28,5 +28,15 @@
         "psr-4": {
             "farenas\\Tests\\":"tests/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "farenas\\AdodbConect\\Providers\\AdodbConectServiceProvider"
+            ],
+            "aliases": {
+                "AdodbConect": "farenas\\AdodbConect\\Facades\\AdodbConectFacade"
+            }
+        }
     }
 }
