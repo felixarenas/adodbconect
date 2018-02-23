@@ -36,7 +36,7 @@ class seterGeterAdodbConectClass
 
 		$this -> setDataBase($database);
 
-		$this -> pathLocal = dirname(__FILE__)  . '/../../vendor/adodb/adodb-php';
+		$this -> pathLocal = dirname(__FILE__)  . '/../../../../../vendor/adodb/adodb-php';
 
 		$this -> setDriver($driver);
 
