@@ -3,6 +3,7 @@ namespace farenas\AdodbConect\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use farenas\AdodbConect\classAdodb\AdodbConect;
+use farenas\AdodbConect\Console\Commands\AdodbInitConfigCommand;
 
 class AdodbConectServiceProvider extends ServiceProvider{
 
@@ -15,7 +16,8 @@ class AdodbConectServiceProvider extends ServiceProvider{
      */
     public function boot()
     {
-        //
+
+        $this -> publishConfig();
     }
 
     /**
@@ -48,5 +50,11 @@ class AdodbConectServiceProvider extends ServiceProvider{
     {
 
         return [AdodbConect::class];
+    }
+
+    private function publishConfig()
+    {
+
+        $this->publishes([__DIR__.'/../Config/dbConfig.php' => config_path('dbConfig.php')], 'config');
     }
 }
