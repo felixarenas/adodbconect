@@ -11,8 +11,15 @@ class AdodbConect extends seterGeterAdodbConectClass
 
 	use TraitAdodbConnect;
 
-	public function __construct($driver = 'oracle', $server, $puerto, $user, $password, $database)
+	public function __construct()
 	{
+
+		$driver = config('dbConfig.DB_DRIVER');
+        $server = config('dbConfig.DB_HOST');
+        $puerto = config('dbConfig.DB_PORT');
+        $user = config('dbConfig.DB_USERNAME');
+        $password = config('dbConfig.DB_PASSWORD');
+        $database = config('dbConfig.DB_DATABASE');
 
 		$this->setParameter($driver, $server, $puerto, $user, $password, $database);
 	}
