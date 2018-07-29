@@ -13,7 +13,10 @@
         "php": ">=7.0.0",
         "adodb/adodb-php": "^5.20",
         "nesbot/carbon": "^1.22",
-        "cache/cache": "^1.0"
+        "cache/cache": "^1.0",
+        "yajra/laravel-datatables-oracle": "^8.0",
+        "yajra/laravel-oci8": "^5.5",
+        "yajra/laravel-pdo-via-oci8": "^1.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.2"

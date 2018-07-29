@@ -20,6 +20,7 @@ $ composer require felixarenas/adodbconect
 ``` php
 'providers' => [
     farenas\AdodbConect\Providers\AdodbConectServiceProvider::class,
+    Yajra\Oci8\Oci8ServiceProvider::class,
 ]
 ```
 
@@ -35,6 +36,52 @@ $ composer require felixarenas/adodbconect
 
 ``` php
 php artisan vendor:publish --provider="farenas\AdodbConect\Providers\AdodbConectServiceProvider"
+
+php artisan vendor:publish --tag=oracle
+```
+
+## Config
+
+This will copy the configuration file to ``` php config/oracle.php ```
+
+``` php
+'oracle' => [
+    'driver'        => 'oracle',
+    'tns'           => env('DB_TNS', ''),
+    'host'          => env('DB_HOST', ''),
+    'port'          => env('DB_PORT', '1521'),
+    'database'      => env('DB_DATABASE', ''),
+    'username'      => env('DB_USERNAME', ''),
+    'password'      => env('DB_PASSWORD', ''),
+    'charset'       => env('DB_CHARSET', 'AL32UTF8'),
+    'prefix'        => env('DB_PREFIX', ''),
+    'prefix_schema' => env('DB_SCHEMA_PREFIX', ''),
+],
+```
+
+``` php config/dbConfig.php ```
+
+``` php
+return [
+    'DB_DRIVER' => 'oracle',
+    'DB_CONNECTION' => 'oracle',
+    'DB_HOST' => 'localhost',
+    'DB_PORT' => '1070',
+    'DB_DATABASE' => 'name_db',
+    'DB_USERNAME' => 'root',
+    'DB_PASSWORD' => 'password',
+    'DB_TNS' => 'tns_names',
+    'DB_CHARSET' => 'AL32UTF8',
+    'DB_PREFIX' => '',
+    'DB_SCHEMA_PREFIX' => '',
+    'DB_SERVER_VERSION' => '11g',
+];
+```
+
+``` php
+php artisan vendor:publish --provider="farenas\AdodbConect\Providers\AdodbConectServiceProvider"
+
+php artisan vendor:publish --tag=oracle
 ```
 
 ## Usage
