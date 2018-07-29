@@ -3,8 +3,8 @@ namespace farenas\AdodbConect\ClassAdodb;
 
 use Carbon\Carbon;
 use Cache\Adapter\PHPArray\ArrayCachePool;
-use farenas\AdodbConect\classAdodb\TraitAdodbConnect;
-use farenas\AdodbConect\classAdodb\seterGeterAdodbConectClass;
+use farenas\AdodbConect\ClassAdodb\TraitAdodbConnect;
+use farenas\AdodbConect\ClassAdodb\seterGeterAdodbConectClass;
 
 class AdodbConect extends seterGeterAdodbConectClass
 {
