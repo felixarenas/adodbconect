@@ -1,13 +1,15 @@
 <?php
-namespace farenas\AdodbConect\ClassAdodb;
+namespace farenas\AdodbConect\classAdodb;
 
 use Carbon\Carbon;
 use Cache\Adapter\PHPArray\ArrayCachePool;
-use farenas\AdodbConect\ClassAdodb\TraitAdodbConnect;
-use farenas\AdodbConect\ClassAdodb\seterGeterAdodbConectClass;
+use farenas\AdodbConect\classAdodb\TraitAdodbConnect;
+use farenas\AdodbConect\classAdodb\seterGeterAdodbConectClass;
 
 class AdodbConect extends seterGeterAdodbConectClass
 {
+
+	protected $cache;
 
 	use TraitAdodbConnect;
 
@@ -33,6 +35,8 @@ class AdodbConect extends seterGeterAdodbConectClass
 		}
 
 		parent::__construct($driver, $server, $puerto, $user, $password, $database);
+
+		$this->cache = new ArrayCachePool();
 	}
 
 	public function param($paramExecute)
@@ -55,9 +59,7 @@ class AdodbConect extends seterGeterAdodbConectClass
 
 		$indTrans = false;
 
-		$Cache = new ArrayCachePool();
-
-		if ($Cache->hasItem('dbConect') == true) {
+		if ($this->cache->hasItem('dbConect') == true) {
 
 			$indTrans = true;
 		}
@@ -76,9 +78,9 @@ class AdodbConect extends seterGeterAdodbConectClass
 
 					$flagTrans = true;
 
-					$item = $Cache->getItem('dbConect')->set($flagTrans);
+					$item = $this->cache->getItem('dbConect')->set($flagTrans);
 
-					$Cache->save($item);
+					$this->cache->save($item);
 
 					if ($db->IsConnected()) {
 
@@ -223,9 +225,9 @@ class AdodbConect extends seterGeterAdodbConectClass
 
 				$db -> RollbackTrans();
 
-				if (Cache::has('dbConect') == true) {
+				if ($this->cache->hasItem('dbConect') == true) {
 
-					Cache::forget('dbConect');
+					$this->cache->deleteItem('dbConect');
 				}
 
 			}
@@ -264,9 +266,9 @@ class AdodbConect extends seterGeterAdodbConectClass
 
 					$errorTrans = false;
 
-					if (Cache::has('dbConect') == true) {
+					if ($this->cache->hasItem('dbConect') == true) {
 					
-						Cache::forget('dbConect');
+						$this->cache->deleteItem('dbConect');
 					}
 				}
 			}
@@ -274,7 +276,7 @@ class AdodbConect extends seterGeterAdodbConectClass
 
 		if (array_key_exists('paramError' , $paramExecute) === true && $errorTrans === true) {
 
-			if (Cache::has('dbConect') == true) {
+			if ($this->cache->hasItem('dbConect') == true) {
 
 				if (array_key_exists('paramTransaction' , $paramExecute) === true) {
 
@@ -289,7 +291,7 @@ class AdodbConect extends seterGeterAdodbConectClass
 
 							$db -> CompleteTrans();
 
-							Cache::forget('dbConect');
+							$this->cache->deleteItem('dbConect');
 						}
 					}
 				}

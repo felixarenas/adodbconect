@@ -1,5 +1,5 @@
 <?php
-namespace farenas\AdodbConect\ClassAdodb;
+namespace farenas\AdodbConect\classAdodb;
 
 use Exception as ExceptionAdodb;
 
