@@ -17,6 +17,6 @@ class AdodbConectFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'farenas\AdodbConect\ClassAdodb\AdodbConect';
+        return 'farenas\AdodbConect\classAdodb\AdodbConect';
     }
 }
