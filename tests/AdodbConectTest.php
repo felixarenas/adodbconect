@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use farenas\AdodbConect\ClassAdodb\AdodbConect;
+use farenas\AdodbConect\classAdodb\AdodbConect;
 use farenas\Tests\FunctionGeneral;
 
 class AdodbConectTest extends TestCase {
@@ -16,11 +16,11 @@ class AdodbConectTest extends TestCase {
         $password = 'P4c*d3sar';
         $database = 'PRUORA03';
 
-        $db = (new AdodbConect($driver, $server, $puerto, $user, $password, $database))->getConnection();
+        $db = (new AdodbConect())->getConnection();
 
         $this->assertInstanceOf('ADODB_oci8po',$db);
 
-        $db2 = (new AdodbConect($driver, $server, $puerto, $user, $password, $database))->getConnection();
+        $db2 = (new AdodbConect())->getConnection();
 
         $this->assertInstanceOf('ADODB_oci8po',$db2);
     }
@@ -46,7 +46,7 @@ class AdodbConectTest extends TestCase {
 			]
         ];
 
-        $resp = (new AdodbConect($driver, $server, $puerto, $user, $password, $database))->param($paramAdoDb)->run();
+        $resp = (new AdodbConect())->param($paramAdoDb)->run();
 
         $this->assertTrue((new FunctionGeneral)->isArray($resp,['resp','datos']));
 
@@ -60,7 +60,7 @@ class AdodbConectTest extends TestCase {
 			]
         ];
 
-        $resp = (new AdodbConect($driver, $server, $puerto, $user, $password, $database))->param($paramAdoDb)->run();
+        $resp = (new AdodbConect())->param($paramAdoDb)->run();
 
         $this->assertTrue((new FunctionGeneral)->isArray($resp,['resp','errordb']));
     }
@@ -86,7 +86,7 @@ class AdodbConectTest extends TestCase {
 			]
         ];
 
-        $resp = (new AdodbConect($driver, $server, $puerto, $user, $password, $database))->param($paramAdoDb)->run();
+        $resp = (new AdodbConect())->param($paramAdoDb)->run();
 
         $this->assertTrue((new FunctionGeneral)->isArray($resp,['resp','datos']));
     }
