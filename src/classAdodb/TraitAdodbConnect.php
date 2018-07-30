@@ -64,7 +64,7 @@ trait TraitAdodbConnect
 					$server = $this -> getServerConect();
 				}
 
-				$dbConect->charSet = 'UTF8';
+				$dbConect->charSet = $this -> getCharSet();
 
 				$resp = $dbConect->Connect(
 					$server,
