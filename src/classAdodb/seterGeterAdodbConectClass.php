@@ -26,7 +26,9 @@ class seterGeterAdodbConectClass
 
 	protected $paramExcecute;
 
-	public function __construct($driver, $server, $puerto, $user, $password, $database)
+	protected $charset;
+
+	public function __construct($driver, $server, $puerto, $user, $password, $database, $charset = 'AL32UTF8')
 	{
 		$this -> setServer($server);
 
@@ -41,6 +43,8 @@ class seterGeterAdodbConectClass
 		$this -> setDriver($driver);
 
 		$this -> setPuerto($puerto);
+
+		$this -> setCharSet($charset);
 	}
 
 	private function setPuerto($puerto)
@@ -194,5 +198,17 @@ class seterGeterAdodbConectClass
 	{
 
 		return $this -> paramExcecute;
+	}
+
+	protected function setCharSet($charSet)
+	{
+
+		$this -> charset = $charSet;
+	}
+
+	protected function getCharSet()
+	{
+
+		return $this -> charset;
 	}
 }

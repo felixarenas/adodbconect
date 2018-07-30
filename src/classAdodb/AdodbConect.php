@@ -22,11 +22,12 @@ class AdodbConect extends seterGeterAdodbConectClass
         $user = config('dbConfig.DB_USERNAME');
         $password = config('dbConfig.DB_PASSWORD');
         $database = config('dbConfig.DB_DATABASE');
+        $charset = config('dbConfig.DB_CHARSET');
 
-		$this->setParameter($driver, $server, $puerto, $user, $password, $database);
+		$this->setParameter($driver, $server, $puerto, $user, $password, $database, $charset);
 	}
 
-	private function setParameter($driver, $server, $puerto, $user, $password, $database)
+	private function setParameter($driver, $server, $puerto, $user, $password, $database, $charset)
 	{
 
 		if ($driver == 'oracle' || $driver == 'ORACLE') {
@@ -34,7 +35,7 @@ class AdodbConect extends seterGeterAdodbConectClass
 			$driver = 'oci8po';
 		}
 
-		parent::__construct($driver, $server, $puerto, $user, $password, $database);
+		parent::__construct($driver, $server, $puerto, $user, $password, $database, $charset);
 
 		$this->cache = new ArrayCachePool();
 	}
