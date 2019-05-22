@@ -164,7 +164,13 @@ class AdodbConect extends seterGeterAdodbConectClass
 
 			if ($this -> getStrip_tags() == true) {
 
-				$item = strip_tags($item);
+				if ($this -> getExcep_tags() != '') {
+
+					$item = strip_tags($item, $this -> getExcep_tags());
+				} else {
+
+					$item = strip_tags($item);
+				}
 			}
 
 			if (strpos($plsql, $key) != false) {
