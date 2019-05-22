@@ -28,7 +28,11 @@ class seterGeterAdodbConectClass
 
 	protected $charset;
 
-	public function __construct($driver, $server, $puerto, $user, $password, $database, $charset = 'AL32UTF8')
+	protected $strip_tags;
+
+	protected $excep_tags;
+
+	public function __construct($driver, $server, $puerto, $user, $password, $database, $charset = 'AL32UTF8', $str_tags, $excp_tags)
 	{
 		$this -> setServer($server);
 
@@ -45,6 +49,10 @@ class seterGeterAdodbConectClass
 		$this -> setPuerto($puerto);
 
 		$this -> setCharSet($charset);
+
+		$this -> setStrip_tags($str_tags);
+
+		$this -> setExcep_tags($excp_tags);
 	}
 
 	private function setPuerto($puerto)
@@ -210,5 +218,29 @@ class seterGeterAdodbConectClass
 	{
 
 		return $this -> charset;
+	}
+
+	protected function setStrip_tags($strip_tags)
+	{
+
+		$this -> strip_tags = $strip_tags;
+	}
+
+	protected function getStrip_tags()
+	{
+
+		return $this -> strip_tags;
+	}
+
+	protected function setExcep_tags($except_tags)
+	{
+
+		$this -> excep_tags = $except_tags;
+	}
+
+	protected function getExcep_tags()
+	{
+
+		return $this -> excep_tags;
 	}
 }

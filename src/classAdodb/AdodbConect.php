@@ -22,12 +22,14 @@ class AdodbConect extends seterGeterAdodbConectClass
         $user = config('dbConfig.DB_USERNAME');
         $password = config('dbConfig.DB_PASSWORD');
         $database = config('dbConfig.DB_DATABASE');
-        $charset = config('dbConfig.DB_CHARSET');
+		$charset = config('dbConfig.DB_CHARSET');
+		$str_tags = config('dbConfig.STRIP_TAGS');
+		$excp_tags = config('dbConfig.EXCEP_TAGS');
 
-		$this->setParameter($driver, $server, $puerto, $user, $password, $database, $charset);
+		$this->setParameter($driver, $server, $puerto, $user, $password, $database, $charset, $str_tags, $excp_tags);
 	}
 
-	private function setParameter($driver, $server, $puerto, $user, $password, $database, $charset)
+	private function setParameter($driver, $server, $puerto, $user, $password, $database, $charset, $str_tags, $excp_tags)
 	{
 
 		if ($driver == 'oracle' || $driver == 'ORACLE') {
@@ -35,7 +37,7 @@ class AdodbConect extends seterGeterAdodbConectClass
 			$driver = 'oci8po';
 		}
 
-		parent::__construct($driver, $server, $puerto, $user, $password, $database, $charset);
+		parent::__construct($driver, $server, $puerto, $user, $password, $database, $charset, $str_tags, $excp_tags);
 
 		$this->cache = new ArrayCachePool();
 	}
@@ -159,6 +161,11 @@ class AdodbConect extends seterGeterAdodbConectClass
 		$stmt = $db->PrepareSP($plsql);
 
 		foreach ($param as $key => $item) {
+
+			if ($this -> getStrip_tags() == true) {
+
+				$item = strip_tags($item);
+			}
 
 			if (strpos($plsql, $key) != false) {
 
