@@ -14,6 +14,6 @@ return [
     'DB_SCHEMA_PREFIX' => '',
     'DB_SERVER_VERSION' => '11g',
     'STRIP_TAGS' => true,
-    'EXCEP_TAGS' => '',
+    'EXCEP_TAGS' => '', //'<p><a><h1>'
 
 ];
