@@ -3,7 +3,6 @@ ADODBCONECT Facilitates the use of adodb php in laravel
 
 - [README.md](README.md)
 - [CHANGELOG.md](CHANGELOG.md)
-- [CONTRIBUTING.md](CONTRIBUTING.md)
 - [LICENSE.md](LICENSE.md)
 - [composer.json](composer.json) 
 
